@@ -52,33 +52,32 @@ fun bucleMensaje(edad: Int) {
         }
     }
 }
-    fun mensaje(edad: Int, mensaje:String) {
-        bucleMensaje(edad)
-        println()
-        repeat((edad/2)-(mensaje.length/2)){ print(' ')}
-        println(mensaje)
-        bucleMensaje(edad)
-    }
 
-    fun main() {
-        var mensajeIntroducido:String = ""
-        var edadintroducida: Int = 0
-        var capasIntroducidas = 0
-        try {
-            println("Introduzca la edad")
-            edadintroducida = readLine()!!.toInt()
-            println("Numero de capas")
-            capasIntroducidas = readLine()!!.toInt()
-            println("Mensaje de feliicitacion")
-            mensajeIntroducido = readLine().toString().uppercase()
-        } catch (e: NumberFormatException) {
-            println("error de formato vuelva a intentarlo")
+fun mensaje(edad: Int, mensaje: String) {
+    bucleMensaje(edad)
+    println()
+    repeat((edad / 2) - (mensaje.length / 2)) { print(' ') }
+    println(mensaje)
+    bucleMensaje(edad)
+}
 
-        }
+fun main() {
+    var mensajeIntroducido: String = ""
+    var edad: Int = 30
+    var capas = 5
 
-        imprimirVelas(edadintroducida)
-        imprimirCapaSup(edadintroducida)
-        imprimirCapaInf(edadintroducida, capasIntroducidas)
-        mensaje(edadintroducida, mensajeIntroducido)
+    try {
+        println("Mensaje de feliicitacion")
+        mensajeIntroducido = readLine().toString().uppercase()
+    } catch (e: NumberFormatException) {
+        println("error de formato vuelva a intentarlo")
 
     }
+    mensaje(edad, mensajeIntroducido)
+    println()
+    imprimirVelas(edad)
+    imprimirCapaSup(edad)
+    imprimirCapaInf(edad, capas)
+    mensaje(edad, mensajeIntroducido)
+
+}
